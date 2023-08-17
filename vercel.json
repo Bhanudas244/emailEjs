@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "emailchecker",
+  "name": "vercel",
   "builds": [
      { "src": "app.js", "use": "@vercel/node" }
   ],
