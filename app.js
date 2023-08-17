@@ -8,7 +8,7 @@ const cors = require('cors');
 const path = require('path');
  require('./connection/config');  
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 9898
 
 
 app.use(bodyParser.json({limit: '100mb'}));
