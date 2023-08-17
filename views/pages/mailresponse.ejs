@@ -1,0 +1,58 @@
+<!-- mailresponse.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Email Response</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container">
+    <% if (status) { %>
+      <h1 class="mt-4">All emails sent successfully</h1>
+      <table class="table table-bordered mt-4">
+        <tr>
+          <th>Total Sent Count</th>
+          <td><%= totalSentCount %></td>
+        </tr>
+        <tr>
+          <th>Total Failed Count</th>
+          <td><%= totalFailedCount %></td>
+        </tr>
+        <tr>
+          <th>Total Sent</th>
+          <td><%= totalSent %></td>
+        </tr>
+        <tr>
+          <th>Total Failed</th>
+          <td><%= totalFail %></td>
+        </tr>
+      </table>
+    <% } else { %>
+      <h1 class="mt-4">Some emails failed to send</h1>
+      <ul class="list-group mt-4">
+        <% failedEmails.forEach(function(email) { %>
+          <li class="list-group-item"><%= email %></li>
+        <% }); %>
+      </ul>
+      <table class="table table-bordered mt-4">
+        <tr>
+          <th>Total Sent Count</th>
+          <td><%= totalSentCount %></td>
+        </tr>
+        <tr>
+          <th>Total Failed Count</th>
+          <td><%= totalFailedCount %></td>
+        </tr>
+        <tr>
+          <th>Total Sent</th>
+          <td><%= totalSent %></td>
+        </tr>
+        <tr>
+          <th>Total Failed</th>
+          <td><%= totalFail %></td>
+        </tr>
+      </table>
+    <% } %>
+  </div>
+</body>
+</html>

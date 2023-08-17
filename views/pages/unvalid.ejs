@@ -1,0 +1,29 @@
+<!-- unvalid.ejs -->
+<html>
+<head>
+    <%- include('../partials/header', { title: 'Unvalid Emails' }) %>
+    <title>Unvalid Emails</title>
+  
+    <!-- ... your stylesheet links and other head content ... -->
+</head>
+<body>
+    <h2>UnValid Emails</h2>
+    <div class="table-container">
+        <table id="dataTable" class="display">
+            <thead>
+                <tr>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% data.forEach(item => { %> <!-- Use 'data' instead of 'validEmail' -->
+                    <tr>
+                        <td><%= item.email %></td> <!-- Use 'item.email' to access the email property -->
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+    <!-- ... your scripts and other body content ... -->
+</body>
+</html>

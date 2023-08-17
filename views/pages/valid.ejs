@@ -1,0 +1,38 @@
+<!-- valid.ejs -->
+<html>
+<head>
+    <%- include('../partials/header', { title: 'Email Form' }) %>
+    <title>Valid Emails</title>
+    <style>
+        /* Center the table */
+        .table-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Adjust the height based on your design */
+        }
+        table {
+            width: 50%; /* Adjust the width of the table */
+        }
+    </style>
+</head>
+<body>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    
+                    <th>Email Address</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% validEmail.forEach(data => { %>
+                   
+                        <td><%= data.email %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
