@@ -43,14 +43,14 @@ exports.valid = async (req, res) => {
     console.log(error);
   } 
 };
+
 exports.unvalid = async (req, res) => {
   try {
-    const data = await UnValidModel.find({}).sort({_id:-1})
-    res.render('pages/unvalid', { data: null });
-    // res.render("mail");
+    const data = await UnValidModel.find({}).sort({ _id: -1 });
+    res.render('pages/unvalid', { data }); // Make sure 'data' contains the fetched data
   } catch (error) {
     console.log(error);
-  } 
+  }
 };
 
 exports.emailValidator = async (req, res) => {
