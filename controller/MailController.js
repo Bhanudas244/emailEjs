@@ -4,8 +4,8 @@ const exelToJson = require("convert-excel-to-json");
 const fs = require("fs-extra");
 const fss = require("fs");
 const json2xls = require("json2xls");
-const multer = require("multer");
-const upload = multer({ dest: "uploads/" });
+
+
 const nodemailer = require("nodemailer");
 const deepEmailValidator = require("deep-email-validator");
 require("dotenv").config();
