@@ -38,7 +38,7 @@ exports.Mail = async (req, res) => {
 exports.valid = async (req, res) => {
   try {
     res.render('pages/emailval', { data: null });
-    // res.render("mail");
+    // res.render("mail"); 
   } catch (error) {
     console.log(error);
   } 
