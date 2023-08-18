@@ -4,6 +4,8 @@ const exelToJson = require("convert-excel-to-json");
 const fs = require("fs-extra");
 const fss = require("fs");
 const json2xls = require("json2xls");
+const multer = require("multer");
+const upload = multer({ dest: "uploads/" });
 const nodemailer = require("nodemailer");
 const deepEmailValidator = require("deep-email-validator");
 require("dotenv").config();
@@ -11,9 +13,7 @@ const SendModel = require('../model/MailModel');
 const UnsendModel = require('../model/UnsendModel');
 
 const axios = require("axios");
-// const puppeteer = require("puppeteer");
-const puppeteer = require('puppeteer-core');
-const chromium = require('chromium');
+const puppeteer = require("puppeteer");
 const validModel = require("../model/validModel");
 const UnValidModel = require("../model/UnValidModel");
 
@@ -38,7 +38,7 @@ exports.Mail = async (req, res) => {
 exports.valid = async (req, res) => {
   try {
     res.render('pages/emailval', { data: null });
-    // res.render("mail"); 
+    // res.render("mail");
   } catch (error) {
     console.log(error);
   } 
@@ -79,8 +79,7 @@ exports.emailValidator = async (req, res) => {
     
       try {
         const browser = await puppeteer.launch({
-          headless: true,
-          executablePath: chromium.executablePath, 
+          headless: false, // Run in headful mode for debugging
         });
     
         const page = await browser.newPage();
