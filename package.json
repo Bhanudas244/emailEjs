@@ -3,6 +3,8 @@
     "async": "^3.2.4",
     "axios": "^1.4.0",
     "body-parser": "^1.20.2",
+    "cheerio": "^1.0.0-rc.12",
+    "chrome-aws-lambda": "^10.1.0",
     "chromium": "^3.0.3",
     "convert-excel-to-json": "^1.7.0",
     "cors": "^2.8.5",
@@ -17,7 +19,7 @@
     "puppeteer": "^21.0.3",
     "puppeteer-core": "^21.1.0",
     "validator": "^13.9.0",
-    "vercel": "^31.4.0"
+    "vercel": "^24.2.4"
   },
   "name": "emailejs",
   "version": "1.0.0",

@@ -5,7 +5,6 @@ const fs = require("fs-extra");
 const fss = require("fs");
 const json2xls = require("json2xls");
 
-
 const nodemailer = require("nodemailer");
 const deepEmailValidator = require("deep-email-validator");
 require("dotenv").config();
@@ -53,6 +52,66 @@ exports.unvalid = async (req, res) => {
   }
 };
 
+
+
+// exports.emailValidator = async (req, res) => {
+//   const url = "https://emailchecker.info/";
+
+//   try {
+//     if (!req.body.recipients) {
+//       return res.status(400).json({ status: false, message: "Invalid fields" });
+//     }
+
+//     const { recipients } = req.body;
+//     const emailArray = recipients.split(/\s+/);
+
+//     const validatedEmails = [];
+//     const unvalidEmail = [];
+
+//     const browser = await puppeteer.launch();
+
+//     for (const recipient of emailArray) {
+//       try {
+//         const page = await browser.newPage();
+//         await page.goto(url);
+
+//         await page.type('input[name="emails"][placeholder="name@example.com"]', recipient);
+//         await page.click("span#checkBtn");
+
+//         await page.waitForSelector('td.codeL span.text-success, td.codeL span.text-warning', { timeout: 15000 });
+//         const resultText = await page.$eval('td.codeL span.text-success, td.codeL span.text-warning', spanElement => {
+//           const tdElement = spanElement.closest("td");
+//           return tdElement.textContent.trim();
+//         });
+
+//         if (resultText.includes("The email address is valid")) {
+//           validatedEmails.push(recipient);
+//         } else {
+//           unvalidEmail.push(recipient);
+//         }
+
+//         await page.close();
+//       } catch (error) {
+//         console.log(error);
+//       }
+//     }
+
+//     await browser.close();
+
+//     const data = {
+//       count: validatedEmails.length,
+//       emails: validatedEmails,
+//       unValid: unvalidEmail,
+//     };
+
+//     res.status(200).json(data);
+//   } catch (error) {
+//     console.error("Error occurred:", error);
+//     res.status(500).json({ message: "An error occurred during email validation." });
+//   }
+// };
+
+
 exports.emailValidator = async (req, res) => {
 
   const url = "https://emailchecker.info/";
@@ -78,9 +137,10 @@ exports.emailValidator = async (req, res) => {
       await delay(1000);
     
       try {
-        const browser = await puppeteer.launch({
-          headless: false, // Run in headful mode for debugging
-        });
+        // const browser = await puppeteer.launch({
+        //   headless: false, // Run in headful mode for debugging
+        // });
+        const browser = await puppeteer.launch();
     
         const page = await browser.newPage();
     
