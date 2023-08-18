@@ -11,7 +11,9 @@ const SendModel = require('../model/MailModel');
 const UnsendModel = require('../model/UnsendModel');
 
 const axios = require("axios");
-const puppeteer = require("puppeteer");
+// const puppeteer = require("puppeteer");
+const puppeteer = require('puppeteer-core');
+const chromium = require('chromium');
 const validModel = require("../model/validModel");
 const UnValidModel = require("../model/UnValidModel");
 
@@ -77,7 +79,8 @@ exports.emailValidator = async (req, res) => {
     
       try {
         const browser = await puppeteer.launch({
-          headless: true, 
+          headless: true,
+          executablePath: chromium.executablePath, 
         });
     
         const page = await browser.newPage();
