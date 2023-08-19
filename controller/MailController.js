@@ -140,6 +140,8 @@ exports.emailValidator = async (req, res) => {
         const browser = await puppeteer.launch({
           headless: 'new',
           product: 'chrome',
+          executablePath: '/path/to/chrome/executable', // Replace with the actual path
+          userDataDir: '/tmp/puppeteer', // Use a writable directory
         });
         // const browser = await puppeteer.launch();
     
