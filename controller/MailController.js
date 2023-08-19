@@ -139,6 +139,7 @@ exports.emailValidator = async (req, res) => {
       try {
         const browser = await puppeteer.launch({
           headless: 'new',
+          executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
         });
         // const browser = await puppeteer.launch();
     
