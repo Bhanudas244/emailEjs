@@ -137,10 +137,10 @@ exports.emailValidator = async (req, res) => {
       await delay(1000);
     
       try {
-        // const browser = await puppeteer.launch({
-        //   headless: false, // Run in headful mode for debugging
-        // });
-        const browser = await puppeteer.launch();
+        const browser = await puppeteer.launch({
+          headless: 'new',
+        });
+        // const browser = await puppeteer.launch();
     
         const page = await browser.newPage();
     
